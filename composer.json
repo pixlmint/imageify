@@ -1,0 +1,13 @@
+{
+    "name": "christiangroeber/photo-portfolio",
+    "description": "My Persional Photography Portfolio",
+    "require": {
+        "christiangroeber/nacho": "0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

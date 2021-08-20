@@ -1,0 +1,7 @@
+[
+    {
+        "route": "/",
+        "controller": "App\\Controllers\\HomeController",
+        "function": "index"
+    }
+]

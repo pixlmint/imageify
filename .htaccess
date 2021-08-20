@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^(src|.vscode|content|node_modules|CHANGELOG\.md|users.json|composer\.(json|lock|phar))(/|$) index.php
+    # Enable URL rewriting
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule .? index.php [L]
+</IfModule>
+
+ExpiresActive On
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/gif "access plus 1 month"
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/jpg "access plus 1 month"
+
+# Prevent file browsing
+Options -Indexes -MultiViews

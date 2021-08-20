@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    nacho:
+        image: christiannxtlvl/php-server:7.4
+        container_name: imageify_php
+        ports:
+            - 86:80
+        volumes:
+            - ./:/var/www/html
+    mysql:
+        image: mysql
+        container_name: imageify_mysql
+        ports:
+            - 3309:3306
+        volumes:
+            - datavolume:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+
+volumes:
+    datavolume:
+        external: false
