@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Frontend;
 
 use Nacho\Controllers\AbstractController;
 

@@ -2,7 +2,7 @@
     "name": "christiangroeber/photo-portfolio",
     "description": "My Persional Photography Portfolio",
     "require": {
-        "christiangroeber/nacho": "0.6"
+        "christiangroeber/nacho": "0.7"
     },
     "autoload": {
         "psr-4": {

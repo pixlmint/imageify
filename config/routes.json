@@ -1,7 +1,12 @@
 [
     {
         "route": "/",
-        "controller": "App\\Controllers\\HomeController",
+        "controller": "App\\Controllers\\Frontend\\HomeController",
         "function": "index"
+    },
+    {
+        "route": "/api/image/upload",
+        "controller": "App\\Controllers\\API\\ImageController",
+        "function": "uploadImage"
     }
 ]
