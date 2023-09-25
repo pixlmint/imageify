@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+    <div class="gallery">
+        {% for mediaType in media %}
+            {% for file in mediaType['media'] %}
+                {% include 'components/display-media.twig' with {'media': file} %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

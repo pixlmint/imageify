@@ -1,8 +1,11 @@
 {
-    "name": "christiangroeber/photo-portfolio",
-    "description": "My Persional Photography Portfolio",
+    "name": "pixlmint/imageify",
+    "description": "A simple self hosted imgur alternative",
     "require": {
-        "christiangroeber/nacho": "0.7"
+        "pixlmint/nacho": "*",
+        "pixlmint/pixl-cms": "*",
+        "pixlmint/pixlcms-media-plugin": "*",
+        "scssphp/scssphp": "^1.11"
     },
     "autoload": {
         "psr-4": {

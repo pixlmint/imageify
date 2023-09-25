@@ -2,21 +2,14 @@ version: "3"
 
 services:
     nacho:
-        image: christiannxtlvl/php-server:7.4
-        container_name: imageify_php
+        image: christiangroeber/php-server:8.1.2
+        container_name: imageify
         ports:
-            - 86:80
+            - 88:80
         volumes:
             - ./:/var/www/html
-    mysql:
-        image: mysql
-        container_name: imageify_mysql
-        ports:
-            - 3309:3306
-        volumes:
-            - datavolume:/var/lib/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: root
+            - /home/christian/PhpstormProjects/journal/media:/var/www/html/media
+            - /home/christian/PhpstormProjects/journal/content:/var/www/html/content
 
 volumes:
     datavolume:
