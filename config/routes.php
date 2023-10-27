@@ -1,7 +1,8 @@
 <?php
 
+use App\Controllers\GalleryController;
 use App\Controllers\HomeController;
-use App\Helpers\StyleController;
+use App\Controllers\StyleController;
 
 return [
     [
@@ -13,5 +14,15 @@ return [
         'route' => '/api/load-style',
         'controller' => StyleController::class,
         'function' => 'loadStyle',
+    ],
+    [
+        'route' => '/api/gallery/create',
+        'controller' => GalleryController::class,
+        'function' => 'createGallery',
+    ],
+    [
+        'route' => '/api/gallery/upload',
+        'controller' => GalleryController::class,
+        'function' => 'uploadMedia',
     ],
 ];

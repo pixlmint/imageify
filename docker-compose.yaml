@@ -10,6 +10,7 @@ services:
             - ./:/var/www/html
             - /home/christian/PhpstormProjects/journal/media:/var/www/html/media
             - /home/christian/PhpstormProjects/journal/content:/var/www/html/content
+            - ./data:/var/www/html/data
 
 volumes:
     datavolume:

@@ -1,0 +1,7 @@
+<h3>Child Galleries</h3>
+<div class="child-galleries">
+    {% for childGallery in  childGalleries %}
+        {% include 'components/display-child-gallery.twig' with {'gallery': childGallery} %}
+    {% endfor %}
+    <a href="/api/gallery/create?parentGallery={{ gallery.getPage.id }}" class="child-gallery">+</a>
+</div>

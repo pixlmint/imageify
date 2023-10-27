@@ -1,0 +1,17 @@
+{% set printedPath = '/api/view?media=' %}
+<div style="display: flex;">
+    {% for pathName in galleryPathParts %}
+        {% if loop.index0 is same as(0) %}
+            {% set actualPathName = '[root]' %}
+            {% set path = printedPath ~ '/' %}
+        {% else %}
+            {% set actualPathName = pathName %}
+            {% set path = printedPath ~ pathName ~ '/' %}
+        {% endif %}
+        <div>
+            <span>/</span>
+            <a href="{{ path }}">{{ actualPathName }}</a>
+        </div>
+        {% set printedPath = path %}
+    {% endfor %}
+</div>

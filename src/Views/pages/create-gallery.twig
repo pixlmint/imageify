@@ -1,0 +1,9 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+    <form method="POST" action="/api/gallery/create">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Name"/>
+        <input type="submit" value="Create"/>
+    </form>
+{% endblock %}

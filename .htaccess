@@ -1,18 +1,20 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteRule ^(src|.vscode|content|node_modules|CHANGELOG\.md|users.json|composer\.(json|lock|phar))(/|$) index.php
-    # Enable URL rewriting
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule .? index.php [L]
-</IfModule>
+    # Allow access to these directories and specific files
+    RewriteCond %{REQUEST_URI} ^/media/.* [OR]
+    RewriteCond %{REQUEST_URI} ^/assets/.* [OR]
+    RewriteCond %{REQUEST_URI} ^/dist/.* [OR]
+    RewriteCond %{REQUEST_URI} ^/public/.* [OR]
+    RewriteCond %{REQUEST_URI} ^/backup/.* [OR]
+    RewriteCond %{REQUEST_URI} ^/favicon\.ico [OR]
+    RewriteCond %{REQUEST_URI} ^/robots\.txt [OR]
+    RewriteCond %{REQUEST_URI} ^/manifest\.webmanifest
+    # If any of the above conditions are met, do nothing and exit
+    RewriteRule ^ - [L]
 
-ExpiresActive On
-ExpiresByType image/png "access plus 1 month"
-ExpiresByType image/gif "access plus 1 month"
-ExpiresByType image/jpeg "access plus 1 month"
-ExpiresByType image/jpg "access plus 1 month"
+    RewriteRule ^.*$ index.php [L]
+</IfModule>
 
 # Prevent file browsing
 Options -Indexes -MultiViews

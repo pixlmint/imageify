@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers;
+namespace App\Controllers;
 
 use App\Models\Style;
 use App\Repository\StyleRepository;
