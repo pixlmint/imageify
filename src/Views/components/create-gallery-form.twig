@@ -1,0 +1,6 @@
+<form method="POST" action="/api/gallery/create">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Name"/>
+    <input type="hidden" name="parentGallery" value="{{ galleryId }}"/>
+    <input type="submit" class="btn" value="Create"/>
+</form>

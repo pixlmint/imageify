@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
+use Nacho\Contracts\Response;
 use Nacho\Controllers\AbstractController;
 use Nacho\Helpers\PageManager;
 use Nacho\Models\HttpRedirectResponse;
-use Nacho\Models\HttpResponse;
 use Nacho\Models\Request;
 use PixlMint\Media\Helpers\MediaHelper;
 use PixlMint\Media\Models\MediaGalleryDirectory;
@@ -18,17 +18,17 @@ class GalleryController extends AbstractController
         $mediaDirectory = MediaGalleryDirectory::fromPath($gallery);
         $files = $_FILES;
 
-        $mediaHelper = new MediaHelper($this->nacho);
+        $mediaHelper = new MediaHelper();
 
         $mediaHelper->storeAll($mediaDirectory, $files);
 
         return $this->redirect('/api/view?media=' . $gallery);
     }
 
-    public function createGallery(): HttpResponse
+    public function createGallery(): Response
     {
         $request = Request::getInstance();
-        if (key_exists('parentGallery', $_REQUEST)) {
+        if (key_exists('parentGallery', $_REQUEST) && $_REQUEST['parentGallery']) {
             $parentGallery = $_REQUEST['parentGallery'];
         } else {
             $parentGallery = '/';
@@ -44,11 +44,14 @@ class GalleryController extends AbstractController
             $galleryName = $request->getBody()['name'];
             $manager = new PageManager();
             $manager->create($parentGallery, $galleryName, true);
-            $this->redirect('/api/view?media=' . $parentGallery . $galleryName);
+
+            if (!str_ends_with($parentGallery, '/')) {
+                $galleryName  = '/' . $galleryName;
+            }
+
+            return $this->redirect('/api/view?media=' . $parentGallery . $galleryName);
         }
 
-        return $this->render('pages/create-gallery.twig', [
-            'parentGallery' => $parentGallery,
-        ]);
+        return $this->json([], 405);
     }
 }

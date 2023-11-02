@@ -3,7 +3,7 @@
 {% block body %}
     <h2>{% include 'components/gallery-path-parts.twig' with {'galleryPathParts': gallery} %}</h2>
     <div class="gallery">
-        {% include 'components/child-gallery-list.twig' with {'childGalleries': media.getChildGalleries} %}
+        {% include 'components/child-gallery-list.twig' with {'childGalleries': media.getChildGalleries, 'galleryId': galleryId} %}
         <h3>Media</h3>
         <div class="child-medias">
             {% for childMedia in media.childMedias %}

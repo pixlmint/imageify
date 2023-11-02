@@ -3,5 +3,8 @@
     {% for childGallery in  childGalleries %}
         {% include 'components/display-child-gallery.twig' with {'gallery': childGallery} %}
     {% endfor %}
-    <a href="/api/gallery/create?parentGallery={{ gallery.getPage.id }}" class="child-gallery">+</a>
+    <div class="hidden" id="child-gallery-form">
+        {% include 'components/create-gallery-form.twig' with {'gallery': gallery} %}
+    </div>
+    <button type="button" id="child-gallery-button" class="btn child-gallery">+</button>
 </div>

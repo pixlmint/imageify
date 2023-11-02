@@ -31,27 +31,39 @@ h2, h3 {
     color: $text-color;
 }
 
+.hidden {
+    display: none !important;
+}
+
+input[type="text"] {
+    background: #fff;
+    border: 1px solid $border-color;
+    padding: 10px 15px;
+    color: $link-color;
+    border-radius: $media-border-radius;
+}
+
+.btn {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid $border-color;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: $link-color;
+    border-radius: $media-border-radius;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: #eaeaea;
+    }
+}
+
 .gallery {
     max-width: calc(#{$breakpoint-small} - 40px);
     margin: 20px auto;
 
     .child-galleries, .child-medias {
         display: block;
-    }
-
-    a.child-gallery {
-        display: inline-block;
-        background: #fff;
-        border: 1px solid $border-color;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: $link-color;
-        border-radius: $media-border-radius;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background: #eaeaea;
-        }
     }
 
     a.child-gallery,
