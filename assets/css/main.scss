@@ -1,65 +1,164 @@
-:root {
-    --font-color: black;
-}
+$background-color: #f4f4f4;
+$text-color: #333;
+$link-color: #333;
+$border-color: #ddd;
+$button-background: #28a745;
+$button-background-hover: #218838;
+$media-gap: 10px;
+$media-border-radius: 5px;
+
+$breakpoint-small: 600px;
+$breakpoint-large: 900px;
 
 body {
-    font-family: Roboto, serif;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--font-color);
+h1 {
+    background-color: $text-color;
+    color: #fff;
+    padding: 10px 0;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
 
-    * {
-        color: var(--font-color);
-        text-decoration: none;
-    }
+h2, h3 {
+    color: $text-color;
 }
 
 .gallery {
-    .child-galleries {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        padding: 5px;
+    max-width: calc(#{$breakpoint-small} - 40px);
+    margin: 20px auto;
 
-        .child-gallery {
-            min-width: 120px;
-            background-color: rgba(223, 223, 223, 0.33);
-            text-align: center;
-            padding: 30px 5px;
-            border-radius: 2px;
-            text-decoration: none;
-            color: var(--font-color);
+    .child-galleries, .child-medias {
+        display: block;
+    }
+
+    a.child-gallery {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid $border-color;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: $link-color;
+        border-radius: $media-border-radius;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #eaeaea;
         }
     }
 
-    .child-medias {
+    a.child-gallery,
+    .media {
+        max-width: 100%;
+        text-align: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: $media-border-radius;
+        }
+    }
+
+    .media {
+        overflow: hidden;
+        border-radius: $media-border-radius;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    form {
+        width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
+        flex-direction: column;
+        gap: 10px;
 
+        input[type="file"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid $border-color;
+            border-radius: $media-border-radius;
+        }
 
-        .media {
-            height: 30vh;
-            flex-grow: 1;
+        input[type="submit"] {
+            background: $button-background;
+            color: #fff;
+            cursor: pointer;
+            border: none;
 
-            img {
-                min-width: 100%;
-                max-height: 100%;
-                object-fit: cover;
-                vertical-align: bottom;
+            &:hover {
+                background: $button-background-hover;
             }
         }
     }
 }
 
-@font-face {
-    font-family: Roboto;
-    src: url("/assets/fonts/Roboto-Regular.ttf");
+h2 {
+    div {
+        display: block;
+    }
+
+    span, a {
+        font-size: 1rem;
+        margin-left: 20px;
+        text-decoration: none;
+        color: $text-color;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
-@font-face {
-    font-family: Roboto;
-    src: url("/assets/fonts/Roboto-Bold.ttf");
-    font-weight: bold;
+@media screen and (min-width: $breakpoint-small) {
+    .gallery {
+        max-width: calc(#{$breakpoint-large} - 40px);
+
+        .child-medias {
+            display: flex;
+            gap: $media-gap;
+            flex-wrap: wrap;
+
+            .media {
+                flex: 1;
+            }
+        }
+
+        .child-galleries,
+        .child-medias,
+        .media {
+            min-width: calc(33.3333% - #{$media-gap});
+        }
+
+        .child-medias {
+            .media {
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-large) {
+    .gallery {
+        .child-galleries,
+        .child-medias,
+        .media {
+            min-width: calc(25% - #{$media-gap});
+        }
+    }
 }
