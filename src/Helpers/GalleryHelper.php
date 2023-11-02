@@ -3,10 +3,13 @@
 namespace App\Helpers;
 
 use App\Models\Gallery;
+use Exception;
 use Nacho\Helpers\PageManager;
 use Nacho\Nacho;
 use PixlMint\Media\Helpers\MediaHelper;
+use PixlMint\Media\Helpers\MimeHelper;
 use PixlMint\Media\Models\MediaGalleryDirectory;
+use PixlMint\Media\Models\Mime;
 
 class GalleryHelper
 {
@@ -21,7 +24,7 @@ class GalleryHelper
         }
         $this->gallery = $gallery;
         $this->nacho = $nacho;
-        $this->mediaHelper = new MediaHelper($nacho);
+        $this->mediaHelper = new MediaHelper();
     }
 
     public function loadGallery(): Gallery
@@ -31,8 +34,17 @@ class GalleryHelper
         $directory = MediaGalleryDirectory::fromPath($page->id);
         $media = $this->mediaHelper->loadMedia($directory);
         $gallery = new Gallery($page);
+        $helper = $this->mediaHelper;
         foreach ($media as $m) {
-            $gallery->mergeMedias($m->getMedias());
+            $gallery->mergeMedias(array_map(function ($media) use ($helper) {
+                try {
+                    $mediaType = $this->mediaHelper->getMediaHelper($media->getMime());
+                    $scaled = $mediaType->getDefaultScaled();
+                    return $media->getMediaPath($scaled);
+                } catch (Exception $e) {
+                    return $media->getMediaPath();
+                }
+            }, $m->getMedias()));
         }
         if ($page->children) {
             foreach ($page->children as $child) {
@@ -40,10 +52,5 @@ class GalleryHelper
             }
         }
         return $gallery;
-    }
-
-    public static function handleCreateGallery()
-    {
-
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c5509adc18071bffbc44a4a78955f3b",
+    "content-hash": "9a84f4f9c93f707892f79db894f6d078",
     "packages": [
         {
             "name": "mhor/php-mediainfo",
@@ -65,16 +65,16 @@
         },
         {
             "name": "pixlmint/nacho",
-            "version": "1.3.5",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pixlmint/Nacho.git",
-                "reference": "e347c818bd013c33ad836cd6742140f27bbdd03d"
+                "reference": "d3a50ccffe19f13e6e3d111436b632ae6d37dad9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixlmint/Nacho/zipball/e347c818bd013c33ad836cd6742140f27bbdd03d",
-                "reference": "e347c818bd013c33ad836cd6742140f27bbdd03d",
+                "url": "https://api.github.com/repos/pixlmint/Nacho/zipball/d3a50ccffe19f13e6e3d111436b632ae6d37dad9",
+                "reference": "d3a50ccffe19f13e6e3d111436b632ae6d37dad9",
                 "shasum": ""
             },
             "require": {
@@ -106,9 +106,9 @@
             "description": "My own Lightweight PHP Framework",
             "support": {
                 "issues": "https://github.com/pixlmint/Nacho/issues",
-                "source": "https://github.com/pixlmint/Nacho/tree/1.3.5"
+                "source": "https://github.com/pixlmint/Nacho/tree/1.3.7"
             },
-            "time": "2023-10-27T19:13:40+00:00"
+            "time": "2023-11-02T11:02:10+00:00"
         },
         {
             "name": "pixlmint/parsedown",
@@ -166,16 +166,16 @@
         },
         {
             "name": "pixlmint/pixl-cms",
-            "version": "1.8.1",
+            "version": "1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pixlmint/pixl-cms.git",
-                "reference": "a1b0635c27f3e6d5c2949821f752d23433abef0b"
+                "reference": "98440e460f25158b815b542d48e335c887a5e2ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixlmint/pixl-cms/zipball/a1b0635c27f3e6d5c2949821f752d23433abef0b",
-                "reference": "a1b0635c27f3e6d5c2949821f752d23433abef0b",
+                "url": "https://api.github.com/repos/pixlmint/pixl-cms/zipball/98440e460f25158b815b542d48e335c887a5e2ce",
+                "reference": "98440e460f25158b815b542d48e335c887a5e2ce",
                 "shasum": ""
             },
             "require": {
@@ -193,22 +193,22 @@
             "description": "A lightweight CMS powered by Markdown and Nachos",
             "support": {
                 "issues": "https://github.com/pixlmint/pixl-cms/issues",
-                "source": "https://github.com/pixlmint/pixl-cms/tree/1.8.1"
+                "source": "https://github.com/pixlmint/pixl-cms/tree/1.9.2"
             },
-            "time": "2023-10-20T13:40:07+00:00"
+            "time": "2023-11-02T11:37:39+00:00"
         },
         {
             "name": "pixlmint/pixlcms-media-plugin",
-            "version": "1.5",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pixlmint/pixlcms-media-plugin.git",
-                "reference": "3882f740a4363affa5a1d91765dd45ead90bb990"
+                "reference": "5ae4300ee179cd3dbc59ef19978b011f4ded475b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pixlmint/pixlcms-media-plugin/zipball/3882f740a4363affa5a1d91765dd45ead90bb990",
-                "reference": "3882f740a4363affa5a1d91765dd45ead90bb990",
+                "url": "https://api.github.com/repos/pixlmint/pixlcms-media-plugin/zipball/5ae4300ee179cd3dbc59ef19978b011f4ded475b",
+                "reference": "5ae4300ee179cd3dbc59ef19978b011f4ded475b",
                 "shasum": ""
             },
             "require": {
@@ -226,9 +226,9 @@
             "description": "A simple Media plugin for PixlCMS",
             "support": {
                 "issues": "https://github.com/pixlmint/pixlcms-media-plugin/issues",
-                "source": "https://github.com/pixlmint/pixlcms-media-plugin/tree/1.5"
+                "source": "https://github.com/pixlmint/pixlcms-media-plugin/tree/1.5.3"
             },
-            "time": "2023-10-27T09:22:53+00:00"
+            "time": "2023-11-02T18:26:55+00:00"
         },
         {
             "name": "scssphp/scssphp",
@@ -668,16 +668,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.23",
+            "version": "v5.4.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4cd2e3ea301aadd76a4172756296fe552fb45b0b"
+                "reference": "c6980e82a6656f6ebfabfd82f7585794cb122554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4cd2e3ea301aadd76a4172756296fe552fb45b0b",
-                "reference": "4cd2e3ea301aadd76a4172756296fe552fb45b0b",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c6980e82a6656f6ebfabfd82f7585794cb122554",
+                "reference": "c6980e82a6656f6ebfabfd82f7585794cb122554",
                 "shasum": ""
             },
             "require": {
@@ -723,7 +723,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.23"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.30"
             },
             "funding": [
                 {
@@ -739,7 +739,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-23T19:33:36+00:00"
+            "time": "2023-10-27T18:36:14+00:00"
         },
         {
             "name": "twig/twig",
@@ -1363,16 +1363,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.4.x-dev",
+            "version": "10.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "82aa514eed18cc8b7643e521a5275413251d930a"
+                "reference": "cacd8b9dd224efa8eb28beb69004126c7ca1a1a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/82aa514eed18cc8b7643e521a5275413251d930a",
-                "reference": "82aa514eed18cc8b7643e521a5275413251d930a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cacd8b9dd224efa8eb28beb69004126c7ca1a1a1",
+                "reference": "cacd8b9dd224efa8eb28beb69004126c7ca1a1a1",
                 "shasum": ""
             },
             "require": {
@@ -1444,7 +1444,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.4"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.4.2"
             },
             "funding": [
                 {
@@ -1460,7 +1460,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-26T07:26:37+00:00"
+            "time": "2023-10-26T07:21:45+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -2430,9 +2430,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phpunit/phpunit": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

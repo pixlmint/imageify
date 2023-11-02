@@ -4,12 +4,15 @@ namespace App\Controllers;
 
 use Nacho\Controllers\AbstractController;
 use Nacho\Helpers\PageManager;
+use Nacho\Models\HttpRedirectResponse;
+use Nacho\Models\HttpResponse;
+use Nacho\Models\Request;
 use PixlMint\Media\Helpers\MediaHelper;
 use PixlMint\Media\Models\MediaGalleryDirectory;
 
 class GalleryController extends AbstractController
 {
-    public function uploadMedia(): void
+    public function uploadMedia(): HttpRedirectResponse
     {
         $gallery = $_REQUEST['gallery'];
         $mediaDirectory = MediaGalleryDirectory::fromPath($gallery);
@@ -19,12 +22,12 @@ class GalleryController extends AbstractController
 
         $mediaHelper->storeAll($mediaDirectory, $files);
 
-        $this->redirect('/api/view?media=' . $gallery);
+        return $this->redirect('/api/view?media=' . $gallery);
     }
 
-    public function createGallery(): string
+    public function createGallery(): HttpResponse
     {
-        $request = $this->nacho->getRequest();
+        $request = Request::getInstance();
         if (key_exists('parentGallery', $_REQUEST)) {
             $parentGallery = $_REQUEST['parentGallery'];
         } else {

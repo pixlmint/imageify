@@ -1,0 +1,2 @@
+0 * * * * python3 /var/www/html/docker/transcode.py >> /var/log/cron/cron.log
+0 0 */7 * * /var/www/html/docker/rotate_log.sh

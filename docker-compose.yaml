@@ -2,15 +2,14 @@ version: "3"
 
 services:
     nacho:
-        image: christiangroeber/php-server:8.1.2
+        build:
+            context: .
+            dockerfile: Dockerfile
         container_name: imageify
         ports:
             - 88:80
         volumes:
             - ./:/var/www/html
-            - /home/christian/PhpstormProjects/journal/media:/var/www/html/media
-            - /home/christian/PhpstormProjects/journal/content:/var/www/html/content
-            - ./data:/var/www/html/data
 
 volumes:
     datavolume:

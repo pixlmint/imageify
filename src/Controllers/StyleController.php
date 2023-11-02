@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Style;
 use App\Repository\StyleRepository;
 use Nacho\Controllers\AbstractController;
+use Nacho\Models\HttpResponse;
 use Nacho\Nacho;
 use Nacho\ORM\RepositoryManager;
 use ScssPhp\ScssPhp\Compiler;
@@ -20,7 +21,7 @@ class StyleController extends AbstractController
         self::$STYLE_PATH = $_SERVER['DOCUMENT_ROOT'] . self::$STYLE_PATH;
     }
 
-    public function loadStyle(): string
+    public function loadStyle(): HttpResponse
     {
         $repo = RepositoryManager::getInstance()->getRepository(StyleRepository::class);
         /** @var Style $style */
@@ -31,11 +32,15 @@ class StyleController extends AbstractController
 //            $repo->set($style);
         }
 
+        $content = $style->getStyle();
+        $response = new HttpResponse($content);
+
         if (isset($this->compileTime)) {
-            header('X-Compile-Time: ' . $this->compileTime);
+            $response->setHeader('X-Compile-Time', $this->compileTime);
         }
-        header('Content-Type: text/css');
-        return $style->getStyle();
+        $response->setHeader('Content-Type', 'text/css');
+
+        return $response;
     }
 
     private function compileStyle(): Style

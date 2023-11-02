@@ -4,16 +4,18 @@ namespace App\Controllers;
 
 use App\Helpers\GalleryHelper;
 use Nacho\Controllers\AbstractController;
+use Nacho\Models\HttpRedirectResponse;
+use Nacho\Models\HttpResponse;
 use Nacho\Models\Request;
 
 class HomeController extends AbstractController
 {
-    public function index(): string
+    public function index(): HttpRedirectResponse
     {
-        $this->redirect('/api/view?media=/');
+        return $this->redirect('/api/view?media=/');
     }
 
-    public function viewMedia(): string
+    public function viewMedia(): HttpResponse
     {
         $request = Request::getInstance();
         $body = $request->getBody();

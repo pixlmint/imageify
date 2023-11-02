@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  "imageify_build":
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        UID: 99
+        GID: 100
+    image: pixlmint/imageify:latest
+    container_name: imageify_build
+    volumes:
+      - data:/var/www/html/data
+      - content:/var/www/html/content
+      - media:/var/www/html/media
+      - backup:/var/www/html/backup
+    ports:
+      - "88:80"
+
+volumes:
+  data:
+  media:
+  content:
+  backup:
