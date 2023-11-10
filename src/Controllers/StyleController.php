@@ -14,22 +14,25 @@ class StyleController extends AbstractController
 {
     private static string $STYLE_PATH = '/assets/css/main.scss';
     private float $compileTime;
+    private StyleRepository $styleRepository;
 
-    public function __construct(Nacho $nacho)
+    public function __construct(StyleRepository $styleRepository)
     {
-        parent::__construct($nacho);
+        parent::__construct();
         self::$STYLE_PATH = $_SERVER['DOCUMENT_ROOT'] . self::$STYLE_PATH;
+        $this->styleRepository = $styleRepository;
     }
 
     public function loadStyle(): HttpResponse
     {
-        $repo = RepositoryManager::getInstance()->getRepository(StyleRepository::class);
         /** @var Style $style */
-        $style = $repo->getById(1);
+        $style = $this->styleRepository->getById(1);
 
         if (!$style) {
             $style = $this->compileStyle();
-//            $repo->set($style);
+            if (Nacho::$container->get('debug')) {
+                $this->styleRepository->set($style);
+            }
         }
 
         $content = $style->getStyle();

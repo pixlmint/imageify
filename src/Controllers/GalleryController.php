@@ -2,32 +2,40 @@
 
 namespace App\Controllers;
 
+use Nacho\Contracts\PageManagerInterface;
+use Nacho\Contracts\RequestInterface;
 use Nacho\Contracts\Response;
 use Nacho\Controllers\AbstractController;
 use Nacho\Helpers\PageManager;
 use Nacho\Models\HttpRedirectResponse;
-use Nacho\Models\Request;
 use PixlMint\Media\Helpers\MediaHelper;
 use PixlMint\Media\Models\MediaGalleryDirectory;
 
 class GalleryController extends AbstractController
 {
+    private MediaHelper $mediaHelper;
+    private PageManagerInterface $pageManager;
+
+    public function __construct(MediaHelper $mediaHelper, PageManagerInterface $pageManager)
+    {
+        parent::__construct();
+        $this->mediaHelper = $mediaHelper;
+        $this->pageManager = $pageManager;
+    }
+
     public function uploadMedia(): HttpRedirectResponse
     {
         $gallery = $_REQUEST['gallery'];
         $mediaDirectory = MediaGalleryDirectory::fromPath($gallery);
         $files = $_FILES;
 
-        $mediaHelper = new MediaHelper();
-
-        $mediaHelper->storeAll($mediaDirectory, $files);
+        $this->mediaHelper->storeAll($mediaDirectory, $files);
 
         return $this->redirect('/api/view?media=' . $gallery);
     }
 
-    public function createGallery(): Response
+    public function createGallery(RequestInterface $request): Response
     {
-        $request = Request::getInstance();
         if (key_exists('parentGallery', $_REQUEST) && $_REQUEST['parentGallery']) {
             $parentGallery = $_REQUEST['parentGallery'];
         } else {
@@ -42,11 +50,10 @@ class GalleryController extends AbstractController
                 ]);
             }
             $galleryName = $request->getBody()['name'];
-            $manager = new PageManager();
-            $manager->create($parentGallery, $galleryName, true);
+            $this->pageManager->create($parentGallery, $galleryName, true);
 
             if (!str_ends_with($parentGallery, '/')) {
-                $galleryName  = '/' . $galleryName;
+                $galleryName = '/' . $galleryName;
             }
 
             return $this->redirect('/api/view?media=' . $parentGallery . $galleryName);

@@ -6,6 +6,11 @@ use App\Controllers\StyleController;
 
 return [
     [
+        'route' => '/',
+        'controller' => HomeController::class,
+        'function' => 'index',
+    ],
+    [
         'route' => '/api/view',
         'controller' => HomeController::class,
         'function' => 'viewMedia',

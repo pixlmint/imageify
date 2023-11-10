@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Helpers\GalleryHelper;
+use Nacho\Contracts\RequestInterface;
 use Nacho\Controllers\AbstractController;
 use Nacho\Models\HttpRedirectResponse;
 use Nacho\Models\HttpResponse;
@@ -15,9 +16,8 @@ class HomeController extends AbstractController
         return $this->redirect('/api/view?media=/');
     }
 
-    public function viewMedia(): HttpResponse
+    public function viewMedia(RequestInterface $request): HttpResponse
     {
-        $request = Request::getInstance();
         $body = $request->getBody();
         if (!key_exists('media', $request->getBody())) {
             return $this->json(['error' => 'No media specified'], 400);
@@ -29,7 +29,7 @@ class HomeController extends AbstractController
             $this->redirect("/api/view?media={$gallery}", true);
         }
 
-        $gHelper = new GalleryHelper($gallery, $this->nacho);
+        $gHelper = new GalleryHelper($gallery);
         $mediaGallery = $gHelper->loadGallery();
 
         $galleryPathParts = explode('/', $gallery);
