@@ -8,9 +8,7 @@ use Nacho\Contracts\PageManagerInterface;
 use Nacho\Helpers\PageManager;
 use Nacho\Nacho;
 use PixlMint\Media\Helpers\MediaHelper;
-use PixlMint\Media\Helpers\MimeHelper;
 use PixlMint\Media\Models\MediaGalleryDirectory;
-use PixlMint\Media\Models\Mime;
 
 class GalleryHelper
 {
@@ -39,7 +37,7 @@ class GalleryHelper
         foreach ($media as $m) {
             $gallery->mergeMedias(array_map(function ($media) use ($helper) {
                 try {
-                    $mediaType = $this->mediaHelper->getMediaHelper($media->getMime());
+                    $mediaType = $this->mediaHelper->getMediaHelper($media->getMime()->printMime());
                     $scaled = $mediaType->getDefaultScaled();
                     return $media->getMediaPath($scaled);
                 } catch (Exception $e) {
