@@ -43,6 +43,14 @@ input[type="text"] {
     border-radius: $media-border-radius;
 }
 
+.button-group {
+    display: flex;
+
+    .btn {
+        display: block;
+    }
+}
+
 .btn {
     display: inline-block;
     background: #fff;
@@ -52,6 +60,7 @@ input[type="text"] {
     color: $link-color;
     border-radius: $media-border-radius;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
         background: #eaeaea;
@@ -107,7 +116,6 @@ input[type="text"] {
         input[type="submit"] {
             background: $button-background;
             color: #fff;
-            cursor: pointer;
             border: none;
 
             &:hover {

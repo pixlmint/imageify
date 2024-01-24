@@ -2,5 +2,8 @@
     <label for="name">Name</label>
     <input type="text" id="name" name="name" placeholder="Name"/>
     <input type="hidden" name="parentGallery" value="{{ galleryId }}"/>
-    <input type="submit" class="btn" value="Create"/>
+    <div class="button-group">
+        <input type="button" id="cancel-create-gallery" class="btn btn-cancel" value="Cancel">
+        <input type="submit" class="btn" value="Create"/>
+    </div>
 </form>

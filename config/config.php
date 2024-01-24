@@ -3,6 +3,6 @@
 return [
     'routes' => require_once('routes.php'),
     'base' => [
-        'debugEnabled' => true,
+        'debugEnabled' => false,
     ]
 ];
